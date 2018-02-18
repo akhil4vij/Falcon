@@ -1,0 +1,1 @@
+cmd_/home/falcon/NEC/dd/dd_sam.ko := ld -r -m elf_x86_64 -T /usr/src/linux-headers-4.9.0-deepin13-common/scripts/module-common.lds --build-id  -o /home/falcon/NEC/dd/dd_sam.ko /home/falcon/NEC/dd/dd_sam.o /home/falcon/NEC/dd/dd_sam.mod.o ;  true
