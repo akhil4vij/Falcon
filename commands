@@ -1,0 +1,16 @@
+
+//find largest file in a directory
+find /path/to/dir/ -printf '%s %p\n'| sort -nr | head -10
+du -a /var | sort -n -r | head -n 10
+
+//git commands
+git log
+git pull
+git push origin <commit id> :<branch>
+git checkout <branch name> 
+git status
+git add -i (or) git add <file name>
+git commit -s
+git commit --amend
+git reset --hard (or) git reset --hard <commit id>
+git format-patch -<No of commits>

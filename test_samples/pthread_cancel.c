@@ -8,16 +8,7 @@
 	do { printf(msg":, ret-> %d)\n", err); \
 	       exit(EXIT_FAILURE); \
 	} while(0)	       
-
-void *func(void *arg)
-{
-	printf("Thread started working\n");
-	sleep(20);
-
-	/* If cancelled, should not reach this point */
-	printf("Thread should not reach this point\n");
-	pthread_exit(NULL);
-}
+void func();
 
 int main()
 {
@@ -25,6 +16,8 @@ int main()
 	int ret;
 	void *thread_ret_val;
 
+	func();
+#if 0
 	ret = pthread_create(&th, NULL, func, NULL);
 	if (ret)
 		handle_error("pthread_create", ret);
@@ -38,6 +31,18 @@ int main()
 		handle_error("pthread_join", ret);
 	if (strcmp((char *)thread_ret_val, "PTHREAD_CANCELED"))
 		handle_error("strcmp", -1);
-
+#endif
 	return 0;
 }
+
+
+void func()
+{
+	printf("Thread started working\n");
+	sleep(20);
+
+	/* If cancelled, should not reach this point */
+	printf("Thread should not reach this point\n");
+	pthread_exit(NULL);
+}
+
